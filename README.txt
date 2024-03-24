@@ -1,1 +1,1 @@
-Library application using Java
+Library application (Java)
