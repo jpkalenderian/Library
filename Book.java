@@ -7,7 +7,7 @@ public class Book {
     private String genre;
     private boolean availability;
     private boolean reserved;
-    private static final LinkedList<Book> books = new LinkedList<>();
+    private static LinkedList<Book> books = new LinkedList<>();
 
     public Book() {
     }
@@ -76,6 +76,14 @@ public class Book {
 
     public void setReserved(boolean reserved) {
         this.reserved = reserved;
+    }
+
+    public static LinkedList<Book> getBooks() {
+        return books;
+    }
+
+    public static void setBooks(LinkedList<Book> books) {
+        Book.books = books;
     }
 
     @Override
