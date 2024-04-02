@@ -33,7 +33,7 @@ public class Librarian extends Person implements Librarian_Procedures{
         Librarian.librarians = librarians;
     }
 
-    public void AddLibrarian() {
+    public  void AddLibrarian() {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
 
@@ -51,7 +51,7 @@ public class Librarian extends Person implements Librarian_Procedures{
 
         int employeeID;
         do {
-            employeeID = rand.nextInt(1000); // Random ID generation
+            employeeID = rand.nextInt(1000);
         } while (isEmployeeIDExists(employeeID));
 
         Librarian librarian = new Librarian(name, age, gender, employeeID);
@@ -119,41 +119,41 @@ public class Librarian extends Person implements Librarian_Procedures{
 
     @Override
     public void addUser() {
-//        Scanner scanner = new Scanner(System.in);
-//        Random rand = new Random();
-//
-//        System.out.print("Enter User Name: ");
-//        String name = scanner.nextLine();
-//
-//        System.out.print("Enter User Age: ");
-//        int age = scanner.nextInt();
-//
-//        if (age < 6 || age > 100) {
-//            throw new IllegalArgumentException("Age should be between 6 and 100");
-//        }
-//
-//        System.out.print("Enter User Gender: ");
-//        String gender = scanner.next();
-//
-//        int libraryCard;
-//
-//        do {
-//            libraryCard = rand.nextInt(1000);
-//        } while (isLibraryCardExists(libraryCard));
-//
-//        User user = new User(name, age, gender, libraryCard);
-//        User.getUsers().add(user);
-//        System.out.println("User added successfully.");
-//    }
-//
-//    private static boolean isLibraryCardExists(int cardNumber) {
-//        for (User user : User.getUsers()) {
-//            if (user.getLibraryCard() == cardNumber) {
-//                return true;
-//            }
-//        }
-//
-//        return false;
+        Scanner scanner = new Scanner(System.in);
+        Random rand = new Random();
+
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter age: ");
+        int age = scanner.nextInt();
+
+        if (age < 6 || age > 100) {
+            throw new IllegalArgumentException("Age should be between 6 and 100");
+        }
+
+        System.out.print("Enter gender: ");
+        String gender = scanner.next();
+
+        int libraryCard;
+
+        do {
+            libraryCard = rand.nextInt(1000);
+        } while (isLibraryCardExists(libraryCard));
+
+        User user = new User(name, age, gender, libraryCard);
+        User.getUsers().add(user);
+        System.out.println("User added successfully.");
+    }
+
+    private static boolean isLibraryCardExists(int cardNumber) {
+        for (User user : User.getUsers()) {
+            if (user.getLibraryCardNum() == cardNumber) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
@@ -161,6 +161,11 @@ public class Librarian extends Person implements Librarian_Procedures{
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter Book Information:");
+
+        System.out.print("ISBN: ");
+        int isbn = scanner.nextInt();
+        scanner.nextLine();
+
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
@@ -170,16 +175,12 @@ public class Librarian extends Person implements Librarian_Procedures{
         System.out.print("Genre: ");
         String genre = scanner.nextLine();
 
-        System.out.print("ISBN: ");
-        int isbn = scanner.nextInt();
-
         System.out.print("Availability: ");
         boolean availability = scanner.nextBoolean();
 
         System.out.print("Reserved: ");
         boolean reserved = scanner.nextBoolean();
 
-        // Creating a Book object and adding it to the LinkedList of books
         Book book = new Book(isbn, title, author, genre, availability, reserved);
         Book.getBooks().add(book);
         System.out.println("Book added successfully.");

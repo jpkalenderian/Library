@@ -88,6 +88,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return " Title: " + title + "ISBN: " + isbn + " Author: " + author + " Genre: " + genre;
+        return "Title: " + title + " ISBN: " + isbn + " Author: " + author + " Genre: " + genre;
     }
 }
