@@ -48,7 +48,7 @@ public class MainForm extends JFrame {
     }
 
     protected static void readLinkedListFromFile () {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Jean-Paul\\Desktop\\Books.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Books.txt"))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -70,7 +70,7 @@ public class MainForm extends JFrame {
     }
 
     protected static void readLibrarianLinkedListFromFile () {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Jean-Paul\\Desktop\\Librarians.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Librarians.txt"))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -90,7 +90,7 @@ public class MainForm extends JFrame {
     }
 
     protected static void readUserLinkedListFromFile () {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Jean-Paul\\Desktop\\Users.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt"))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -110,7 +110,7 @@ public class MainForm extends JFrame {
     }
 
     protected void writeLinkedListToFile(LinkedList<Book> list) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Jean-Paul\\Desktop\\Books.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Books.txt"))) {
             for (Book book : list) {
                 writer.write(book.getIsbn() + "," + book.getTitle() + "," + book.getAuthor() + "," + book.getGenre() + "," + book.isAvailability() + "," + book.isReserved());
                 writer.newLine();
@@ -121,7 +121,7 @@ public class MainForm extends JFrame {
     }
 
     protected void writeLibrarianLinkedListToFile(LinkedList<Librarian> list) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Jean-Paul\\Desktop\\Librarians.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Librarians.txt"))) {
             for (Librarian librarian : list) {
                 writer.write(librarian.getName() + "," + librarian.getAge() + "," + librarian.getGender() + "," + librarian.getEmployeeID());
                 writer.newLine();
@@ -132,7 +132,7 @@ public class MainForm extends JFrame {
     }
 
     protected void writeUserLinkedListToFile(LinkedList<User> list) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Jean-Paul\\Desktop\\Users.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Users.txt"))) {
             for (User user : list) {
                 writer.write(user.getName() + "," + user.getAge() + "," + user.getGender() + "," + user.getLibraryCardNum());
                 writer.newLine();
