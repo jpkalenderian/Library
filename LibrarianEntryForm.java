@@ -28,11 +28,11 @@ public class LibrarianEntryForm extends JFrame {
                     }
 
                     if (!found) {
-                        JOptionPane.showMessageDialog(null, "wrong input! try again");
+                        JOptionPane.showMessageDialog(null, "Wrong input! Try again");
                     }
 
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "wrong input! try again");
+                    JOptionPane.showMessageDialog(null, "Wrong input! Try again");
                 }
             }
         });
