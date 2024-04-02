@@ -7,23 +7,18 @@ public class UserEntryForm extends JFrame{
     private JButton userEntryButton;
     private JPanel userEntryForm;
 
-
     public UserEntryForm() {
         setTitle("User Login");
         setVisible(true);
         setContentPane(userEntryForm);
         setBounds(750,350, 450,300);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         userEntryButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
             }
         });
     }
 }
-
-
-
-

@@ -33,6 +33,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         addAUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,6 +44,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         checkInformationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,6 +55,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         searchBookByTitleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,6 +71,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         searchBookByAuthorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +88,7 @@ public class LibrarianOptionsForm extends JFrame {
 
             }
         });
+
         searchBookByGenreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -99,6 +104,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         borrowBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,6 +123,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         returnBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -135,6 +142,7 @@ public class LibrarianOptionsForm extends JFrame {
                 }
             }
         });
+
         reserveBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
