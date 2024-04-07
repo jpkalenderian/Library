@@ -89,7 +89,9 @@ public class UserOptionsForm extends JFrame{
                 String title = scanner.nextLine();
 
                 for (int i = 0; i < User.getUsers().size(); i++) {
-                    User.getUsers().get(i).borrowBook(title);
+                    if (User.getUsers().get(i).getLibraryCardNum() == Integer.parseInt(userEntryTextField.getText())) {
+                        User.getUsers().get(i).borrowBook(title);
+                    }
                 }
             }
         });
@@ -103,7 +105,9 @@ public class UserOptionsForm extends JFrame{
                 String title = scanner.nextLine();
 
                 for (int i = 0; i < User.getUsers().size(); i++) {
-                    User.getUsers().get(i).returnBook(title);
+                    if (User.getUsers().get(i).getLibraryCardNum() == Integer.parseInt(userEntryTextField.getText())) {
+                        User.getUsers().get(i).returnBook(title);
+                    }
                 }
             }
         });
@@ -117,7 +121,9 @@ public class UserOptionsForm extends JFrame{
                 String title = scanner.nextLine();
 
                 for (int i = 0; i < User.getUsers().size(); i++) {
-                    User.getUsers().get(i).reserveBook(title);
+                    if (User.getUsers().get(i).getLibraryCardNum() == Integer.parseInt(userEntryTextField.getText())) {
+                        User.getUsers().get(i).reserveBook(title);
+                    }
                 }
             }
         });
