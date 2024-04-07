@@ -13,10 +13,9 @@ public class UserOptionsForm extends JFrame{
     private JButton reserveBookButton;
     private JPanel userOptionsForm;
 
-
     public UserOptionsForm(JTextField userEntryTextField) {
 
-        setTitle("Librarian Options");
+        setTitle("User Options");
         setVisible(true);
         setContentPane(userOptionsForm);
         setBounds(750, 350, 450, 350);
