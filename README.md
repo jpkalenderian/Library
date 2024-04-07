@@ -53,6 +53,12 @@ Upon running the application, you will be prompted to choose whether you are a l
 
 ## Screenshot
 
+mainFormScreenshot.png
+userEntryFormScreenshot.png
+librarianEntryFormScreenshot.png
+userOptionsFormScreenshot.png
+librarianOptionsFormScreenshot.png
+
 These screenshots showcase the user interface of the library management system, providing an overview of its functionalities and design.
 
 ## Contributors
