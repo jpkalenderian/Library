@@ -51,7 +51,7 @@ To run the application, follow these steps:
 
 Upon running the application, you will be prompted to choose whether you are a librarian or a user. Based on your choice, you will be presented with a menu of available actions to perform.
 
-## Screenshot
+## Screenshots
 
 ![Main Form](/Screenshots/mainFormScreenshot.png)<br>
 ![User Entry Form](/Screenshots/userEntryFormScreenshot.png)<br>
