@@ -63,7 +63,7 @@ These screenshots showcase the user interface of the library management system, 
 
 ## Contributors
 
-- Jean Paul Kalenderian (https://github.com/jpkalenderian): Librarian-side functionalities
+- Jean-Paul Kalenderian (https://github.com/jpkalenderian): Librarian-side functionalities
 - Jacob Sarian (https://github.com/JacobSarian): User-side functionalities
 
 ## License
