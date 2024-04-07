@@ -51,6 +51,10 @@ To run the application, follow these steps:
 
 Upon running the application, you will be prompted to choose whether you are a librarian or a user. Based on your choice, you will be presented with a menu of available actions to perform.
 
+## Screenshot
+
+These screenshots showcase the user interface of the library management system, providing an overview of its functionalities and design.
+
 ## Contributors
 
 - Jean Paul Kalenderian (https://github.com/jpkalenderian): Librarian-side functionalities
