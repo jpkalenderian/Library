@@ -10,42 +10,42 @@ The Library Management System is a command-line application developed in Java. I
 
 The project involves creating a library application with the following classes and interfaces:
 
-Book: Represents a book with attributes such as ISBN, title, author, genre, availability, and reservation status.
-User_Procedures: Interface defining user-related procedures.
-Librarian_Procedures: Interface defining librarian-related procedures.
-Person: Abstract class representing a person with attributes like name, age, and gender.
-Librarian: Subclass of Person implementing Librarian_Procedures.
-User: Subclass of Person implementing User_Procedures.
+Book: Represents a book with attributes such as ISBN, title, author, genre, availability, and reservation status.<br>
+User_Procedures: Interface defining user-related procedures.<br>
+Librarian_Procedures: Interface defining librarian-related procedures.<br>
+Person: Abstract class representing a person with attributes like name, age, and gender.<br>
+Librarian: Subclass of Person implementing Librarian_Procedures.<br>
+User: Subclass of Person implementing User_Procedures.<br>
 
 ## Classes and Interfaces
 
-Book Class: Represents a book entity with various attributes and functionalities.
-User_Procedures Interface: Defines procedures for user interactions.
-Librarian_Procedures Interface: Defines procedures for librarian interactions.
-Person Class: Abstract class representing a person with basic attributes and methods.
-Librarian Class: Subclass of Person implementing librarian-specific functionalities.
-User Class: Subclass of Person implementing user-specific functionalities.
+Book Class: Represents a book entity with various attributes and functionalities.<br>
+User_Procedures Interface: Defines procedures for user interactions.<br>
+Librarian_Procedures Interface: Defines procedures for librarian interactions.<br>
+Person Class: Abstract class representing a person with basic attributes and methods.<br>
+Librarian Class: Subclass of Person implementing librarian-specific functionalities.<br>
+User Class: Subclass of Person implementing user-specific functionalities.<br>
 
 ## Tools Used
-Java for programming.
-Swing for the user interface.
-Github for version control and collaboration.
+Java for programming.<br>
+Swing for the user interface.<br>
+Github for version control and collaboration.<br>
 
 ## Features
 
-- **Book Management**: Add, search, borrow, return, and reserve books.
-- **User Management**: Add and search users.
-- **Librarian Management**: Add librarians and perform book-related tasks.
-- **Exception Handling**: Handle exceptions for input validation.
-- **Persistence**: Store data in files for retrieval on application restart.
+- **Book Management**: Add, search, borrow, return, and reserve books.<br>
+- **User Management**: Add and search users.<br>
+- **Librarian Management**: Add librarians and perform book-related tasks.<br>
+- **Exception Handling**: Handle exceptions for input validation.<br>
+- **Persistence**: Store data in files for retrieval on application restart.<br>
 
 ## Getting Started
 
 To run the application, follow these steps:
 
-1. Clone the repository
-2. Compile the Java files
-3. Run the application
+1. Clone the repository<br>
+2. Compile the Java files<br>
+3. Run the application<br>
 
 ## Usage
 
