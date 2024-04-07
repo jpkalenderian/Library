@@ -14,7 +14,7 @@ public class MainForm extends JFrame {
     public MainForm() {
         setTitle("Welcome");
         setContentPane(mainForm);
-        setBounds(750,350, 450,300);
+        setBounds(750, 350, 450, 300);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         addWindowListener(new WindowAdapter() {
@@ -47,7 +47,7 @@ public class MainForm extends JFrame {
         setVisible(true);
     }
 
-    protected static void readLinkedListFromFile () {
+    protected static void readLinkedListFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader("Books.txt"))) {
             String line;
 
@@ -69,7 +69,7 @@ public class MainForm extends JFrame {
         }
     }
 
-    protected static void readLibrarianLinkedListFromFile () {
+    protected static void readLibrarianLinkedListFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader("Librarians.txt"))) {
             String line;
 
@@ -89,7 +89,7 @@ public class MainForm extends JFrame {
         }
     }
 
-    protected static void readUserLinkedListFromFile () {
+    protected static void readUserLinkedListFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader("Users.txt"))) {
             String line;
 
@@ -101,7 +101,7 @@ public class MainForm extends JFrame {
                     int age = Integer.parseInt(parts[1]);
                     String gender = parts[2];
                     int libCardNum = Integer.parseInt(parts[3]);
-                    Librarian.getLibrarians().add(new Librarian(name2, age, gender, libCardNum));
+                    User.getUsers().add(new User(name2, age, gender, libCardNum));
                 }
             }
         } catch (IOException e) {
