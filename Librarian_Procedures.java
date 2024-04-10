@@ -1,7 +1,9 @@
+import javax.swing.*;
+
 public interface Librarian_Procedures {
-    public String searchBookByTitle(String title);
-    public String searchBookByAuthor(String name);
-    public String searchBookByGenre(String genre);
-    public void addUser();
-    public void addBooks();
+    public String searchBookByTitle(JTextField searchBookByTitleTextField);
+    public String searchBookByAuthor(JTextField searchBookByAuthorTextField);
+    public String searchBookByGenre(JTextField searchBookByGenreTextField);
+    public void addUser(JTextField userNameTextField, JTextField userAgeTextField, JRadioButton maleRadioButton);
+    public void addBooks(JTextField isbnTextField, JTextField titleTextField, JTextField authorTextField, JTextField genreTextField, JRadioButton falseRadioButton, JRadioButton trueRadioButton1);
 }

@@ -14,34 +14,32 @@ public class LibrarianOptionsForm extends JFrame {
     private JButton returnBookButton;
     private JButton reserveBookButton;
     private JPanel librarianOptionsForm;
+    private JButton addBookButton;
+    private JButton backButton;
 
-    public LibrarianOptionsForm(JTextField librarianEntryTextField) {
-
+    public LibrarianOptionsForm(JTextField librarianEntryTextField, LibrarianEntryForm librarianEntryForm) {
         setTitle("Librarian Options");
         setVisible(true);
         setContentPane(librarianOptionsForm);
-        setBounds(750, 350, 450, 350);
+        setBounds(750, 350, 450, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        final LibrarianOptionsForm librarianOptionsForm = this;
 
         addALibrarianButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
-                    if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
-                        Librarian.getLibrarians().get(i).AddLibrarian();
-                    }
-                }
+                AddLibrarianForm addLibrarianForm = new AddLibrarianForm(librarianEntryTextField, librarianOptionsForm);
+                dispose();
+                addLibrarianForm.setVisible(true);
             }
         });
 
         addAUserButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
-                    if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
-                        Librarian.getLibrarians().get(i).addUser();
-                    }
-                }
+                AddUserForm addUserForm = new AddUserForm(librarianEntryTextField, librarianOptionsForm);
+                dispose();
+                addUserForm.setVisible(true);
             }
         });
 
@@ -50,7 +48,7 @@ public class LibrarianOptionsForm extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
                     if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
-                        System.out.println(Librarian.getLibrarians().get(i).checkInformation());
+                        JOptionPane.showMessageDialog(null, Librarian.getLibrarians().get(i).checkInformation());
                     }
                 }
             }
@@ -59,106 +57,71 @@ public class LibrarianOptionsForm extends JFrame {
         searchBookByTitleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
-
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
-                    if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
-                        System.out.println(Librarian.getLibrarians().get(i).searchBookByTitle(title));
-                    }
-                }
+                SearchBookByTitleForm searchBookByTitleForm = new SearchBookByTitleForm(librarianEntryTextField, librarianOptionsForm);
+                dispose();
+                searchBookByTitleForm.setVisible(true);
             }
         });
 
         searchBookByAuthorButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
-
-                System.out.println("Enter author: ");
-                String author = scanner.nextLine();
-
-                for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
-                    if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
-                        System.out.println(Librarian.getLibrarians().get(i).searchBookByAuthor(author));
-                    }
-                }
-
+                SearchBookByAuthor searchBookByAuthor = new SearchBookByAuthor(librarianEntryTextField, librarianOptionsForm);
+                dispose();
+                searchBookByAuthor.setVisible(true);
             }
         });
 
         searchBookByGenreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
+                SearchBookByGenre searchBookByGenre = new SearchBookByGenre(librarianEntryTextField, librarianOptionsForm);
+                dispose();
+                searchBookByGenre.setVisible(true);
+            }
+        });
 
-                System.out.println("Enter genre: ");
-                String genre = scanner.nextLine();
-
-                for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
-                    if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
-                        System.out.println(Librarian.getLibrarians().get(i).searchBookByGenre(genre));
-                    }
-                }
+        addBookButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddBook addBook = new AddBook(librarianEntryTextField, librarianOptionsForm);
+                dispose();
+                addBook.setVisible(true);
             }
         });
 
         borrowBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
-
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                System.out.println("Enter user's library card number: ");
-                int libraryCardNum = scanner.nextInt();
-
-                for (int i = 0; i < User.getUsers().size(); i++) {
-                    if (User.getUsers().get(i).getLibraryCardNum() == libraryCardNum) {
-                        User.getUsers().get(i).borrowBook(title);
-                    }
-                }
+                BorrowBookLibrarian borrowBookLibrarian = new BorrowBookLibrarian(librarianOptionsForm);
+                dispose();
+                borrowBookLibrarian.setVisible(true);
             }
         });
 
         returnBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
-
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                System.out.println("Enter user's library card number: ");
-                int libraryCardNum = scanner.nextInt();
-
-                for (int i = 0; i < User.getUsers().size(); i++) {
-                    if (User.getUsers().get(i).getLibraryCardNum() == libraryCardNum) {
-                        User.getUsers().get(i).returnBook(title);
-                    }
-                }
+                ReturnBookLibrarian returnBookLibrarian = new ReturnBookLibrarian(librarianOptionsForm);
+                dispose();
+                returnBookLibrarian.setVisible(true);
             }
         });
 
         reserveBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
+                ReserveBookLibrarian reserveBookLibrarian = new ReserveBookLibrarian(librarianOptionsForm);
+                dispose();
+                reserveBookLibrarian.setVisible(true);
+            }
+        });
 
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                System.out.println("Enter user's library card number: ");
-                int libraryCardNum = scanner.nextInt();
-
-                for (int i = 0; i < User.getUsers().size(); i++) {
-                    if (User.getUsers().get(i).getLibraryCardNum() == libraryCardNum) {
-                        User.getUsers().get(i).reserveBook(title);
-                    }
-                }
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                librarianEntryForm.setVisible(true);
+                dispose();
             }
         });
     }

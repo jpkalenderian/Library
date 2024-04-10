@@ -1,3 +1,4 @@
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +13,7 @@ public class MainForm extends JFrame {
     private JButton librarianButton;
 
     public MainForm() {
-        setTitle("Welcome");
+        setTitle("LMS");
         setContentPane(mainForm);
         setBounds(750, 350, 450, 300);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -35,10 +36,12 @@ public class MainForm extends JFrame {
             }
         });
 
+        final MainForm mainForm = this;
+
         librarianButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LibrarianEntryForm librarianEntryForm = new LibrarianEntryForm();
+                LibrarianEntryForm librarianEntryForm = new LibrarianEntryForm(mainForm);
                 dispose();
                 librarianEntryForm.setVisible(true);
             }
@@ -143,6 +146,12 @@ public class MainForm extends JFrame {
     }
 
     public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel( new FlatIntelliJLaf());
+        } catch( Exception ex ) {
+            System.err.println( "Failed to initialize LaF" );
+        }
+
         MainForm mainForm = new MainForm();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {

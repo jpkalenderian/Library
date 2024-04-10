@@ -82,48 +82,20 @@ public class UserOptionsForm extends JFrame{
         borrowBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
 
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                for (int i = 0; i < User.getUsers().size(); i++) {
-                    if (User.getUsers().get(i).getLibraryCardNum() == Integer.parseInt(userEntryTextField.getText())) {
-                        User.getUsers().get(i).borrowBook(title);
-                    }
-                }
             }
         });
 
         returnBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
-
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                for (int i = 0; i < User.getUsers().size(); i++) {
-                    if (User.getUsers().get(i).getLibraryCardNum() == Integer.parseInt(userEntryTextField.getText())) {
-                        User.getUsers().get(i).returnBook(title);
-                    }
-                }
             }
         });
 
         reserveBookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Scanner scanner = new Scanner(System.in);
 
-                System.out.println("Enter title: ");
-                String title = scanner.nextLine();
-
-                for (int i = 0; i < User.getUsers().size(); i++) {
-                    if (User.getUsers().get(i).getLibraryCardNum() == Integer.parseInt(userEntryTextField.getText())) {
-                        User.getUsers().get(i).reserveBook(title);
-                    }
-                }
             }
         });
     }

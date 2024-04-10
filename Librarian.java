@@ -1,9 +1,11 @@
+import javax.management.BadStringOperationException;
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Librarian extends Person implements Librarian_Procedures{
+public class Librarian extends Person implements Librarian_Procedures {
     private int employeeID;
     private static LinkedList<Librarian> librarians = new LinkedList<>();
 
@@ -33,21 +35,31 @@ public class Librarian extends Person implements Librarian_Procedures{
         Librarian.librarians = librarians;
     }
 
-    public  void AddLibrarian() {
-        Scanner scanner = new Scanner(System.in);
+    public void AddLibrarian(JTextField librarianNameTextField, JTextField librarianAgeTextField, JRadioButton maleRadioButton) {
         Random rand = new Random();
 
-        System.out.print("Enter Librarian Name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter Librarian Age: ");
-        int age = scanner.nextInt();
-        if (age < 18 || age > 100) {
-            throw new IllegalArgumentException("Age should be between 18 and 100");
+        String name = librarianNameTextField.getText();
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty.");
         }
 
-        System.out.print("Enter Librarian Gender: ");
-        String gender = scanner.next();
+        for (int i = 0; i < name.length(); i++) {
+            if (Character.isDigit(name.charAt(i))) {
+                throw new IllegalArgumentException("Name cannot contain numbers.");
+            }
+        }
+
+        int age = Integer.parseInt(librarianAgeTextField.getText());
+        if (age < 18 || age > 100) {
+            throw new IllegalArgumentException("Age should be between 18 and 100.");
+        }
+
+        String gender = "";
+        if (maleRadioButton.isSelected()) {
+            gender = "male";
+        } else {
+            gender = "female";
+        }
 
         int employeeID;
         do {
@@ -56,7 +68,6 @@ public class Librarian extends Person implements Librarian_Procedures{
 
         Librarian librarian = new Librarian(name, age, gender, employeeID);
         librarians.add(librarian);
-        System.out.println("Librarian added successfully.");
     }
 
     private static boolean isEmployeeIDExists(int id) {
@@ -69,9 +80,19 @@ public class Librarian extends Person implements Librarian_Procedures{
     }
 
     @Override
-    public String searchBookByTitle(String title) {
+    public String searchBookByTitle(JTextField searchBookByTitleTextField) {
+        if (searchBookByTitleTextField.getText().isEmpty()) {
+            return "Title cannot be empty.";
+        }
+
+        for (int i = 0; i < searchBookByTitleTextField.getText().length(); i++) {
+            if (Character.isDigit(searchBookByTitleTextField.getText().charAt(i))) {
+                return ("Title cannot contain numbers.");
+            }
+        }
+
         for (int i = 0; i < Book.getBooks().size(); i++) {
-            if (Objects.equals(Book.getBooks().get(i).getTitle(), title)) {
+            if (Objects.equals(Book.getBooks().get(i).getTitle(), searchBookByTitleTextField.getText())) {
                 return Book.getBooks().get(i).toString();
             }
         }
@@ -80,12 +101,22 @@ public class Librarian extends Person implements Librarian_Procedures{
     }
 
     @Override
-    public String searchBookByAuthor(String name) {
+    public String searchBookByAuthor(JTextField searchBookByAuthorTextField) {
         boolean found = false;
         StringBuilder result = new StringBuilder();
 
+        if (searchBookByAuthorTextField.getText().isEmpty()) {
+            return "Author cannot be empty.";
+        }
+
+        for (int i = 0; i < searchBookByAuthorTextField.getText().length(); i++) {
+            if (Character.isDigit(searchBookByAuthorTextField.getText().charAt(i))) {
+                return ("Author cannot contain numbers.");
+            }
+        }
+
         for (int i = 0; i < Book.getBooks().size(); i++) {
-            if (Objects.equals(Book.getBooks().get(i).getAuthor(), name)) {
+            if (Objects.equals(Book.getBooks().get(i).getAuthor(), searchBookByAuthorTextField.getText())) {
                 result.append(Book.getBooks().get(i).getTitle()).append("\n");
                 found = true;
             }
@@ -99,12 +130,22 @@ public class Librarian extends Person implements Librarian_Procedures{
     }
 
     @Override
-    public String searchBookByGenre(String genre) {
+    public String searchBookByGenre(JTextField searchBookByGenreTextField) {
         boolean found = false;
         StringBuilder result = new StringBuilder();
 
+        if (searchBookByGenreTextField.getText().isEmpty()) {
+            return "Genre cannot be empty.";
+        }
+
+        for (int i = 0; i < searchBookByGenreTextField.getText().length(); i++) {
+            if (Character.isDigit(searchBookByGenreTextField.getText().charAt(i))) {
+                return ("Genre cannot contain numbers.");
+            }
+        }
+
         for (int i = 0; i < Book.getBooks().size(); i++) {
-            if (Objects.equals(Book.getBooks().get(i).getGenre(), genre)) {
+            if (Objects.equals(Book.getBooks().get(i).getGenre(), searchBookByGenreTextField.getText())) {
                 result.append(Book.getBooks().get(i).getTitle()).append("\n");
                 found = true;
             }
@@ -118,22 +159,32 @@ public class Librarian extends Person implements Librarian_Procedures{
     }
 
     @Override
-    public void addUser() {
-        Scanner scanner = new Scanner(System.in);
+    public void addUser(JTextField userNameTextField, JTextField userAgeTextField, JRadioButton maleRadioButton) {
         Random rand = new Random();
 
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter age: ");
-        int age = scanner.nextInt();
-
-        if (age < 6 || age > 100) {
-            throw new IllegalArgumentException("Age should be between 6 and 100");
+        String name = userNameTextField.getText();
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty.");
         }
 
-        System.out.print("Enter gender: ");
-        String gender = scanner.next();
+        for (int i = 0; i < name.length(); i++) {
+            if (Character.isDigit(name.charAt(i))) {
+                throw new IllegalArgumentException("Name cannot contain numbers.");
+            }
+        }
+
+        int age = Integer.parseInt(userAgeTextField.getText());
+
+        if (age < 6 || age > 100) {
+            throw new IllegalArgumentException("Age should be between 6 and 100.");
+        }
+
+        String gender = "";
+        if (maleRadioButton.isSelected()) {
+            gender = "male";
+        } else {
+            gender = "female";
+        }
 
         int libraryCard;
 
@@ -143,7 +194,6 @@ public class Librarian extends Person implements Librarian_Procedures{
 
         User user = new User(name, age, gender, libraryCard);
         User.getUsers().add(user);
-        System.out.println("User added successfully.");
     }
 
     private static boolean isLibraryCardExists(int cardNumber) {
@@ -157,33 +207,57 @@ public class Librarian extends Person implements Librarian_Procedures{
     }
 
     @Override
-    public void addBooks() {
-        Scanner scanner = new Scanner(System.in);
+    public void addBooks(JTextField isbnTextField, JTextField titleTextField, JTextField authorTextField, JTextField genreTextField, JRadioButton falseRadioButton, JRadioButton trueRadioButton1) {
+        int isbn = Integer.parseInt(isbnTextField.getText()) ;
+        if (isbn < 0 || isbn > 999999999) {
+            throw new IllegalArgumentException("ISBN should be between 0 and 9999999999.");
+        }
 
-        System.out.println("Enter Book Information:");
+        String title = titleTextField.getText();
+        if (title.isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be empty.");
+        }
 
-        System.out.print("ISBN: ");
-        int isbn = scanner.nextInt();
-        scanner.nextLine();
+        for (int i = 0; i < title.length(); i++) {
+            if (Character.isDigit(title.charAt(i))) {
+                throw new IllegalArgumentException("Title cannot contain numbers.");
+            }
+        }
 
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
+        String author = authorTextField.getText();
+        if (author.isEmpty()) {
+            throw new IllegalArgumentException("Author cannot be empty.");
+        }
 
-        System.out.print("Author: ");
-        String author = scanner.nextLine();
+        for (int i = 0; i < author.length(); i++) {
+            if (Character.isDigit(author.charAt(i))) {
+                throw new IllegalArgumentException("Author cannot contain numbers.");
+            }
+        }
 
-        System.out.print("Genre: ");
-        String genre = scanner.nextLine();
+        String genre = genreTextField.getText();
+        if (genre.isEmpty()) {
+            throw new IllegalArgumentException("Genre cannot be empty.");
+        }
 
-        System.out.print("Availability: ");
-        boolean availability = scanner.nextBoolean();
+        for (int i = 0; i < genre.length(); i++) {
+            if (Character.isDigit(genre.charAt(i))) {
+                throw new IllegalArgumentException("Genre cannot contain numbers.");
+            }
+        }
 
-        System.out.print("Reserved: ");
-        boolean reserved = scanner.nextBoolean();
+        boolean availability = true;
+        if (falseRadioButton.isSelected()) {
+            availability = false;
+        }
+
+        boolean reserved = false;
+        if (trueRadioButton1.isSelected()) {
+            reserved = true;
+        }
 
         Book book = new Book(isbn, title, author, genre, availability, reserved);
         Book.getBooks().add(book);
-        System.out.println("Book added successfully.");
     }
 
     @Override

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -86,71 +87,81 @@ public class User extends Person implements User_Procedures {
     }
 
     @Override
-    public void borrowBook(String title) {
-        boolean found = false;
+    public String borrowBook(JTextField titleTextField) {
+        if (titleTextField.getText().isEmpty()) {
+            return "Title cannot be empty.";
+        }
+
+        for (int i = 0; i < titleTextField.getText().length(); i++) {
+            if (Character.isDigit(titleTextField.getText().charAt(i))) {
+                return "Title cannot contain numbers.";
+            }
+        }
 
         for (Book book : Book.getBooks()) {
-            if (book.getTitle().equals(title)) {
+            if (book.getTitle().equals(titleTextField.getText())) {
                 if (book.isAvailability() && !book.isReserved()) {
                     book.setAvailability(false);
-                    System.out.println("Book " + title + " borrowed successfully.");
+                    return ("Book " + titleTextField.getText() + " borrowed successfully.");
                 } else {
-                    System.out.println("Book " + title + " cannot be borrowed.");
+                    return ("Book " + titleTextField.getText() + " cannot be borrowed.");
                 }
-
-                found = true;
-                break;
             }
         }
 
-        if (!found) {
-            System.out.println("Book with title " + title + " was not found.");
-        }
+        return ("Book with title " + titleTextField.getText() + " was not found.");
     }
 
     @Override
-    public void returnBook(String title) {
-        boolean found = false;
+    public String returnBook(JTextField titleTextField) {
+        if (titleTextField.getText().isEmpty()) {
+            return "Title cannot be empty.";
+        }
+
+        for (int i = 0; i < titleTextField.getText().length(); i++) {
+            if (Character.isDigit(titleTextField.getText().charAt(i))) {
+                return "Title cannot contain numbers.";
+            }
+        }
 
         for (Book book : Book.getBooks()) {
-            if (book.getTitle().equals(title)) {
-                if (!book.isReserved()) {
+            if (book.getTitle().equals(titleTextField.getText())) {
+                if (!book.isAvailability() || book.isReserved()) {
                     book.setAvailability(true);
-                    System.out.println("Book " + title + " returned successfully.");
+                    book.setReserved(false);
+                    return ("Book " + titleTextField.getText() + " returned successfully.");
                 } else {
-                    System.out.println("Book " + title + " cannot be returned.");
+                    return ("Book " + titleTextField.getText() + " cannot be returned.");
                 }
-
-                found = true;
-                break;
             }
         }
 
-        if (!found) {
-            System.out.println("Book with title " + title + " was not found.");
-        }
+        return ("Book with title " + titleTextField.getText() + " was not found.");
     }
 
     @Override
-    public void reserveBook(String Title) {
-        boolean found = false;
+    public String reserveBook(JTextField titleTextField) {
+        if (titleTextField.getText().isEmpty()) {
+            return "Title cannot be empty.";
+        }
+
+        for (int i = 0; i < titleTextField.getText().length(); i++) {
+            if (Character.isDigit(titleTextField.getText().charAt(i))) {
+                return "Title cannot contain numbers.";
+            }
+        }
 
         for (Book book : Book.getBooks()) {
-            if (book.getTitle().equals(Title)) {
+            if (book.getTitle().equals(titleTextField.getText())) {
                 if (book.isAvailability() && !book.isReserved()) {
                     book.setReserved(true);
-                    System.out.println("Book " + Title + " reserved successfully.");
+                    return ("Book " + titleTextField.getText() + " reserved successfully.");
                 } else {
-                    System.out.println("Book " + Title + " cannot be reserved.");
+                    return ("Book " + titleTextField.getText() + " cannot be reserved.");
                 }
-
-                found = true;
-                break;
             }
         }
 
-        if (!found) {
-            System.out.println("Book with title " + Title + " was not found.");
-        }
+        return ("Book with title " + titleTextField.getText() + " was not found.");
     }
 }
