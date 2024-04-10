@@ -1,4 +1,8 @@
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatArcDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatAtomOneDarkIJTheme;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -147,7 +151,7 @@ public class MainForm extends JFrame {
 
     public static void main(String[] args) {
         try {
-            UIManager.setLookAndFeel( new FlatIntelliJLaf());
+            UIManager.setLookAndFeel( new FlatOneDarkIJTheme());
         } catch( Exception ex ) {
             System.err.println( "Failed to initialize LaF" );
         }
