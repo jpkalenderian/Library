@@ -31,18 +31,16 @@ public class MainForm extends JFrame {
             }
         });
 
-
+        final MainForm mainForm = this;
 
         userButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserEntryForm userEntryForm = new UserEntryForm();
+                UserEntryForm userEntryForm = new UserEntryForm(mainForm);
                 dispose();
                 userEntryForm.setVisible(true);
             }
         });
-
-        final MainForm mainForm = this;
 
         librarianButton.addActionListener(new ActionListener() {
             @Override
