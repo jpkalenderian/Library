@@ -8,6 +8,7 @@ public class UserEntryForm extends JFrame {
     private JPanel userEntryForm;
     private JButton backButton;
 
+
     public UserEntryForm() {
         setTitle("User Login");
         setVisible(true);
@@ -46,5 +47,11 @@ public class UserEntryForm extends JFrame {
             }
         });
 
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 }
