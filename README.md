@@ -10,21 +10,21 @@ The Library Management System is a GUI application developed in Java. It offers 
 
 The project involves creating a library application with the following classes and interfaces:
 
-Book: Represents a book with attributes such as ISBN, title, author, genre, availability, and reservation status.<br>
-User_Procedures: Interface defining user-related procedures.<br>
-Librarian_Procedures: Interface defining librarian-related procedures.<br>
-Person: Abstract class representing a person with attributes like name, age, and gender.<br>
-Librarian: Subclass of Person implementing Librarian_Procedures.<br>
-User: Subclass of Person implementing User_Procedures.<br>
+- Book: Represents a book with attributes such as ISBN, title, author, genre, availability, and reservation status.<br>
+- User_Procedures: Interface defining user-related procedures.<br>
+- Librarian_Procedures: Interface defining librarian-related procedures.<br>
+- Person: Abstract class representing a person with attributes like name, age, and gender.<br>
+- Librarian: Subclass of Person implementing Librarian_Procedures.<br>
+- User: Subclass of Person implementing User_Procedures.<br>
 
 ## Classes and Interfaces
 
-Book Class: Represents a book entity with various attributes and functionalities.<br>
-User_Procedures Interface: Defines procedures for user interactions.<br>
-Librarian_Procedures Interface: Defines procedures for librarian interactions.<br>
-Person Class: Abstract class representing a person with basic attributes and methods.<br>
-Librarian Class: Subclass of Person implementing librarian-specific functionalities.<br>
-User Class: Subclass of Person implementing user-specific functionalities.<br>
+- Book Class: Represents a book entity with various attributes and functionalities.<br>
+- User_Procedures Interface: Defines procedures for user interactions.<br>
+- Librarian_Procedures Interface: Defines procedures for librarian interactions.<br>
+- Person Class: Abstract class representing a person with basic attributes and methods.<br>
+- Librarian Class: Subclass of Person implementing librarian-specific functionalities.<br>
+- User Class: Subclass of Person implementing user-specific functionalities.<br>
 
 ## Tools Used
 - Java for programming.<br>
