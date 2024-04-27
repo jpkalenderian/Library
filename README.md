@@ -4,7 +4,7 @@ This project is a Java-based library management system designed to manage books,
 
 ## Overview
 
-The Library Management System is a command-line application developed in Java. It offers separate interfaces for librarians and users, allowing them to perform various tasks related to library management.
+The Library Management System is a GUI application developed in Java. It offers separate interfaces for librarians and users, allowing them to perform various tasks related to library management.
 
 ## Problem Statement
 
