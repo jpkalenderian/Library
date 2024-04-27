@@ -1,9 +1,7 @@
-import javax.management.BadStringOperationException;
 import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Librarian extends Person implements Librarian_Procedures {
     private int employeeID;

@@ -154,6 +154,7 @@ public class User extends Person implements User_Procedures {
         for (Book book : Book.getBooks()) {
             if (book.getTitle().equals(titleTextField.getText())) {
                 if (book.isAvailability() && !book.isReserved()) {
+                    book.setAvailability(false);
                     book.setReserved(true);
                     return ("Book " + titleTextField.getText() + " reserved successfully.");
                 } else {
