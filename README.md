@@ -29,7 +29,7 @@ User Class: Subclass of Person implementing user-specific functionalities.<br>
 ## Tools Used
 Java for programming.<br>
 Swing for the user interface.<br>
-Github for version control and collaboration.<br>
+GitHub for version control and collaboration.<br>
 
 ## Features
 
