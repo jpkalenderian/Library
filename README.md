@@ -27,9 +27,9 @@ Librarian Class: Subclass of Person implementing librarian-specific functionalit
 User Class: Subclass of Person implementing user-specific functionalities.<br>
 
 ## Tools Used
-Java for programming.<br>
-Swing for the user interface.<br>
-GitHub for version control and collaboration.<br>
+- Java for programming.<br>
+- Swing for the user interface.<br>
+- GitHub for version control and collaboration.<br>
 
 ## Features
 
