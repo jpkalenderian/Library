@@ -29,7 +29,7 @@ public class AddLibrarianForm extends JFrame {
                         }
                     }
 
-                    JOptionPane.showMessageDialog(null, "Librarian added successfully.");
+                    JOptionPane.showMessageDialog(null, "Librarian added successfully. " + "\nEmployee ID: " + Librarian.getLibrarians().getLast().getEmployeeID());
                 } catch (NumberFormatException e2) {
                     JOptionPane.showMessageDialog(null, "Enter a valid age.");
                 } catch (IllegalArgumentException e3) {

@@ -99,7 +99,7 @@ public class User extends Person implements User_Procedures {
         }
 
         for (Book book : Book.getBooks()) {
-            if (book.getTitle().equals(titleTextField.getText())) {
+            if (book.getTitle().equalsIgnoreCase(titleTextField.getText())) {
                 if (book.isAvailability() && !book.isReserved()) {
                     book.setAvailability(false);
                     return ("Book " + titleTextField.getText() + " borrowed successfully.");
@@ -125,7 +125,7 @@ public class User extends Person implements User_Procedures {
         }
 
         for (Book book : Book.getBooks()) {
-            if (book.getTitle().equals(titleTextField.getText())) {
+            if (book.getTitle().equalsIgnoreCase(titleTextField.getText())) {
                 if (!book.isAvailability() || book.isReserved()) {
                     book.setAvailability(true);
                     book.setReserved(false);
@@ -152,7 +152,7 @@ public class User extends Person implements User_Procedures {
         }
 
         for (Book book : Book.getBooks()) {
-            if (book.getTitle().equals(titleTextField.getText())) {
+            if (book.getTitle().equalsIgnoreCase(titleTextField.getText())) {
                 if (book.isAvailability() && !book.isReserved()) {
                     book.setAvailability(false);
                     book.setReserved(true);

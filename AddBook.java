@@ -26,6 +26,16 @@ public class AddBook extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    for (int i = 0; i < Book.getBooks().size(); i++) {
+                        if (Book.getBooks().get(i).getIsbn() == Integer.parseInt(isbnTextField.getText())) {
+                            JOptionPane.showMessageDialog(null, "Book already exists.");
+                        }
+                    }
+                    for (int i = 0; i < Book.getBooks().size(); i++) {
+                        if (Book.getBooks().get(i).getTitle().equalsIgnoreCase(titleTextField.getText())){
+                            JOptionPane.showMessageDialog(null, "Book already exists.");
+                        }
+                    }
                     for (int i = 0; i < Librarian.getLibrarians().size(); i++) {
                         if (Librarian.getLibrarians().get(i).getEmployeeID() == Integer.parseInt(librarianEntryTextField.getText())) {
                             Librarian.getLibrarians().get(i).addBooks(isbnTextField, titleTextField, authorTextField, genreTextField, falseRadioButton, trueRadioButton1);

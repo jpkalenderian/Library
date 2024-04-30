@@ -29,7 +29,7 @@ public class AddUserForm extends JFrame {
                         }
                     }
 
-                    JOptionPane.showMessageDialog(null, "User added successfully.");
+                    JOptionPane.showMessageDialog(null, "User added successfully. " + "\nLibrary Card Number: " + User.getUsers().getLast().getLibraryCardNum());
                 } catch (NumberFormatException e2) {
                     JOptionPane.showMessageDialog(null, "Enter a valid age.");
                 } catch (IllegalArgumentException e3) {

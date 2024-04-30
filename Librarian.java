@@ -90,7 +90,7 @@ public class Librarian extends Person implements Librarian_Procedures {
         }
 
         for (int i = 0; i < Book.getBooks().size(); i++) {
-            if (Objects.equals(Book.getBooks().get(i).getTitle(), searchBookByTitleTextField.getText())) {
+            if (Book.getBooks().get(i).getTitle().equalsIgnoreCase(searchBookByTitleTextField.getText())) {
                 return Book.getBooks().get(i).toString();
             }
         }
@@ -114,7 +114,7 @@ public class Librarian extends Person implements Librarian_Procedures {
         }
 
         for (int i = 0; i < Book.getBooks().size(); i++) {
-            if (Objects.equals(Book.getBooks().get(i).getAuthor(), searchBookByAuthorTextField.getText())) {
+            if (Book.getBooks().get(i).getAuthor().equalsIgnoreCase(searchBookByAuthorTextField.getText())) {
                 result.append(Book.getBooks().get(i).getTitle()).append("\n");
                 found = true;
             }
@@ -143,7 +143,7 @@ public class Librarian extends Person implements Librarian_Procedures {
         }
 
         for (int i = 0; i < Book.getBooks().size(); i++) {
-            if (Objects.equals(Book.getBooks().get(i).getGenre(), searchBookByGenreTextField.getText())) {
+            if (Book.getBooks().get(i).getGenre().equalsIgnoreCase(searchBookByGenreTextField.getText())) {
                 result.append(Book.getBooks().get(i).getTitle()).append("\n");
                 found = true;
             }
