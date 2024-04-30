@@ -41,11 +41,12 @@ The project involves creating a library application with the following classes a
 
 ## Getting Started
 
-To run the application, follow these steps:
-
-1. Clone the repository<br>
-2. Compile the Java files<br>
-3. Run the application<br>
+1. Clone the repository.<br>
+2. Right-click on the "flatlaf-3.4.1.jar" and "flatlaf-intellij-themes-3.4.1.jar" files and add them as a library.
+3. Compile the Java files.<br>
+4. First, run the application once, then close it to ensure the creation of the .txt files.<br>
+5. Manually add a librarian to the Librarians.txt file using the format (name,age,gender,employeeID) to enable login access (typically, this account serves as the admin).
+6. Now, you can utilize the GUI to add new users, librarians, and books, granting access to the full functionalities of the application.
 
 ## Usage
 

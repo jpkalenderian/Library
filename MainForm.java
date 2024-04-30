@@ -148,9 +148,9 @@ public class MainForm extends JFrame {
 
     public static void main(String[] args) {
         try {
-            UIManager.setLookAndFeel( new FlatOneDarkIJTheme());
+            UIManager.setLookAndFeel(new FlatOneDarkIJTheme());
         } catch( Exception ex ) {
-            System.err.println( "Failed to initialize LaF" );
+            System.err.println("Failed to initialize LaF");
         }
 
         MainForm mainForm = new MainForm();
