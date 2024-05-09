@@ -210,6 +210,11 @@ public class Librarian extends Person implements Librarian_Procedures {
         if (isbn < 0 || isbn > 999999999) {
             throw new IllegalArgumentException("ISBN should be between 0 and 9999999999.");
         }
+        for (int i = 0; i < Book.getBooks().size(); i++) {
+            if(Book.getBooks().get(i).getIsbn() == isbn) {
+                throw new IllegalArgumentException("This ISBN already exists.");
+            }
+        }
 
         String title = titleTextField.getText();
         if (title.isEmpty()) {
@@ -219,6 +224,12 @@ public class Librarian extends Person implements Librarian_Procedures {
         for (int i = 0; i < title.length(); i++) {
             if (Character.isDigit(title.charAt(i))) {
                 throw new IllegalArgumentException("Title cannot contain numbers.");
+            }
+        }
+
+        for (int i = 0; i < Book.getBooks().size(); i++) {
+            if(Objects.equals(Book.getBooks().get(i).getTitle(), title)) {
+                throw new IllegalArgumentException("This book title already exists.");
             }
         }
 
